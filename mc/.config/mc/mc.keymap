@@ -1,6 +1,6 @@
 [filemanager]
 ChangePanel = tab; ctrl-i
-# Help = f1
+Help = f1
 UserMenu = f2
 View = f3
 # ViewFile =
@@ -11,7 +11,7 @@ Move = f6
 MakeDir = f7
 Delete = f8
 Menu = f9
-Quit = f12
+Quit = f10
 MenuLastSelected = f19
 QuitQuiet = f20
 Find = alt-question
@@ -50,7 +50,7 @@ ScreenList = alt-prime
 # EditExtensionsFile =
 # EditFileHighlightFile =
 # Filter =
-# ConnectFish =
+# ConnectShell =
 # ConnectFtp =
 # Undelete =
 EditorViewerHistory = alt-shift-e
@@ -81,7 +81,7 @@ PutOtherLink = ctrl-r
 
 [panel]
 CycleListingFormat = alt-t
-Search = alt-slash; ctrl-s; alt-s
+Search = ctrl-s; alt-s
 Mark = insert; ctrl-t
 MarkUp = shift-up
 MarkDown = shift-down
@@ -105,8 +105,8 @@ DeleteSingle = f18
 Select = alt-plus
 Unselect = alt-minus
 SelectInvert = alt-asterisk
-CdChild = right
-CdParent = left
+CdChild = ctrl-pgdn
+CdParent = ctrl-pgup
 # CdParentSmart =
 # Panelize =
 History = alt-shift-h
@@ -124,12 +124,15 @@ Bottom = alt-gt; end; c1
 # SortNext =
 # SortReverse =
 # SortByName =
+# SortByVersion =
 # SortByExt =
 # SortBySize =
 # SortByMTime =
 # Filter =
-# ScrollLeft =
-# ScrollRight =
+ScrollLeft = alt-lparenthesis
+ScrollRight = alt-rparenthesis
+# ScrollHome =
+# ScrollEnd =
 
 [dialog]
 Ok = enter

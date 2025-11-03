@@ -38,7 +38,6 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
-    export COLORTERM=truecolor
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -117,30 +116,32 @@ fi
 # Custom settings
 #------------------------------------
 
+export COLORTERM=truecolor
+
 stty -ixon
 stty ixany
 
 # alias p='podman container run --rm -i -t -v `pwd`:`pwd` -w `pwd` debian12'
-alias p='podman container run --rm -i -t -v `pwd`:`pwd` -w `pwd`'
+# alias p='podman container run --rm -i -t -v `pwd`:`pwd` -w `pwd`'
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+# if [ -d "$HOME/.local/bin" ] ; then
+#     PATH="$HOME/.local/bin:$PATH"
+# fi
 
-nnn_cd()
-{
-    if ! [ -z "$NNN_PIPE" ]; then
-        printf "%s\0" "0c${PWD}" > "${NNN_PIPE}" !&
-    fi
-}
+# nnn_cd()
+# {
+#     if ! [ -z "$NNN_PIPE" ]; then
+#         printf "%s\0" "0c${PWD}" > "${NNN_PIPE}" !&
+#     fi
+# }
 
-trap nnn_cd EXIT
+# trap nnn_cd EXIT
 
 
 # . "$HOME/.atuin/bin/env"
 
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 # eval "$(atuin init bash)"
 
 #pgrep devilspie2 > /dev/null || ds2
@@ -186,17 +187,17 @@ eval "$(starship init bash)"
 #        rm -f -- "$NNN_TMPFILE" > /dev/null
 #    }
 #}
-n ()
-{
-    stty start undef
-    stty stop undef
+# n ()
+# {
+#     stty start undef
+#     stty stop undef
 
-    stty quit undef
-#    stty erase undef
-    stty kill undef
+#     stty quit undef
+# #    stty erase undef
+#     stty kill undef
 
-    command nn "$@"
-}
+#     command nn "$@"
+# }
 
 #source /home/kd/.config/broot/launcher/bash/br
 #source ~/.yazi.sh

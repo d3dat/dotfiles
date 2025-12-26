@@ -112,102 +112,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#------------------------------------
-# Custom settings
-#------------------------------------
-
-export COLORTERM=truecolor
-
-stty -ixon
-stty ixany
-
-# alias p='podman container run --rm -i -t -v `pwd`:`pwd` -w `pwd` debian12'
-# alias p='podman container run --rm -i -t -v `pwd`:`pwd` -w `pwd`'
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# nnn_cd()
-# {
-#     if ! [ -z "$NNN_PIPE" ]; then
-#         printf "%s\0" "0c${PWD}" > "${NNN_PIPE}" !&
-#     fi
-# }
+# Midnight Commander
+export COLORTERM=truecolor
 
-# trap nnn_cd EXIT
-
-
-# . "$HOME/.atuin/bin/env"
-
-# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-# eval "$(atuin init bash)"
-
-#pgrep devilspie2 > /dev/null || ds2
-
-#eval "$(zoxide init bash)"
-export EDITOR="zed -n"
+# McFly
+export EDITOR=micro
 export MCFLY_RESULTS=26
 export MCFLY_RESULTS_SORT=LAST_RUN
 export MCFLY_PROMPT="❯"
 eval "$(mcfly init bash)"
 
+# Starship
 eval "$(starship init bash)"
-
-#alias ns="cat ${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection} | tr '\0' '\n' | xargs"
-
-#n ()
-#{
-    # Block nesting of nnn in subshells
-#    [ "${NNNLVL:-0}" -eq 0 ] || {
-#        echo "nnn is already running"
-#        return
-#    }
-
-    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
-    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
-    # see. To cd on quit only on ^G, remove the "export" and make sure not to
-    # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
-    #      NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-#    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-
-    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
-    # stty start undef
-    # stty stop undef
-    # stty lwrap undef
-    # stty lnext undef
-
-    # The command builtin allows one to alias nnn to n, if desired, without
-    # making an infinitely recursive alias
-#    command nn "$@"
-
-#    [ ! -f "$NNN_TMPFILE" ] || {
-#        . "$NNN_TMPFILE"
-#        rm -f -- "$NNN_TMPFILE" > /dev/null
-#    }
-#}
-# n ()
-# {
-#     stty start undef
-#     stty stop undef
-
-#     stty quit undef
-# #    stty erase undef
-#     stty kill undef
-
-#     command nn "$@"
-# }
-
-#source /home/kd/.config/broot/launcher/bash/br
-#source ~/.yazi.sh
-
-#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-#. "$HOME/.cargo/env"
-
-#export DOTNET_ROOT=$HOME/dotnet
-#export PATH=$PATH:$HOME/dotnet
-
-#export PATH=/home/kd/.mcuxpressotools/cmake-3.30.0-linux-x86_64/bin:${PATH}
-
-#export PATH=/home/kd/.mcuxpressotools/ninja-1.12.1:${PATH}
